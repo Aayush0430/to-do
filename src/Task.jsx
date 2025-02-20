@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { FaCheck } from "react-icons/fa6";
@@ -10,12 +10,19 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
 
   const taskInputRef = useRef(null); // Create ref
 
-  //
-  useEffect(() => {
-    if (isEditClicked && taskInputRef.current) {
-      taskInputRef.current.focus();
-    }
-  }, [isEditClicked]);
+  //edit
+  function handleEditClick() {
+    setEditClicked((prev) => !prev);
+    setTimeout(() => {
+      const inputField = document.getElementById(task.id);
+      if (inputField) {
+        inputField.focus();
+        // inputField.select(); // Select all text for easy editing
+      } else {
+        console.log("not found");
+      }
+    }, 0); // Ensure this runs after state update
+  }
   return (
     <div className="rounded-lg py-3 px-5 my-2 border-2 border-white flex items-center justify-between hover:bg-gray-900">
       <form
@@ -25,7 +32,7 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
         }}
       >
         <input
-          id="taskName"
+          id={task.id}
           readOnly={isEditCLicked ? false : true}
           type="text"
           className={`taskNameEach overflow-hidden border-0 rounded px-2 outline-none ${
@@ -55,7 +62,8 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
           className="taskListEach scale-150 accent-gray-400 "
         />
         <button
-          onClick={() => setEditClicked((prev) => !prev)}
+          // onClick={() => setEditClicked((prev) => !prev)}
+          onClick={handleEditClick}
           className=" ml-5 text-xl hover:text-blue-500 hover:scale-125 transition-all ease-in-out"
         >
           <CiEdit />
