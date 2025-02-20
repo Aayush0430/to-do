@@ -11,10 +11,11 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
   const taskInputRef = useRef(null); // Create ref
 
   //
-  function handleEditClick() {
-    setEditClicked(true);
-    taskInputRef.current.focus(); // Focus the input field
-  }
+  useEffect(() => {
+    if (isEditClicked && taskInputRef.current) {
+      taskInputRef.current.focus();
+    }
+  }, [isEditClicked]);
   return (
     <div className="rounded-lg py-3 px-5 my-2 border-2 border-white flex items-center justify-between hover:bg-gray-900">
       <form
@@ -54,8 +55,7 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
           className="taskListEach scale-150 accent-gray-400 "
         />
         <button
-          // onClick={() => setEditClicked((prev) => !prev)}
-          onClick={handleEditClick}
+          onClick={() => setEditClicked((prev) => !prev)}
           className=" ml-5 text-xl hover:text-blue-500 hover:scale-125 transition-all ease-in-out"
         >
           <CiEdit />
