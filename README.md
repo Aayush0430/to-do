@@ -1,4 +1,4 @@
-<a href="https://to-do-react4.vercel.app/">try it out!</a>
+<a href="https://to-do-react4.vercel.app/">Try it out!</a>
 
 # React + Vite
 
