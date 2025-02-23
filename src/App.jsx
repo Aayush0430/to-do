@@ -1,7 +1,8 @@
 import "./App.css";
 import Task from "./Task";
-import { IoIosAdd, IoLogoFacebook } from "react-icons/io";
+import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { useState } from "react";
+import Line from "./line";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -27,40 +28,43 @@ function App() {
 
   //
   return (
-    <div className="bg-white h-screen w-screen text-white flex justify-center pt-[10vh] dark:bg-gray-950">
-      <div className="w-[50vw] min-h-[20vh] border-2 border-white  rounded-xl p-5">
+    <div className=" min-h-[100vh] w-[100vw]  flex justify-center pt-[10vh] bg-gray-950 ">
+      <div className="w-[50vw] min-h-[70vh] bg-amber-100 shadow-2xl shadow-[gray] h-max border-2 border-white  rounded-xl p-5">
         <div className="flex items-center justify-between bg-red pb-5">
-          <h2 className="text-center text-xl font-bold font-mono">To do:</h2>
-          <div className="flex items-center">
-            <form onSubmit={addTask}>
-              <input
-                id="inputText"
-                type="text"
-                required
-                placeholder="Enter taskname"
-                className="w-[25vw] text-white border-2 border-white rounded-lg px-5 py-1"
-                value={Eachtask}
-                onChange={(e) => setEachTask(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="text-2xl ml-2 border-0  rounded border-white  hover:scale-125 hover:rotate-90 transition-all ease-in-out "
-              >
-                <IoIosAdd />
-              </button>
-            </form>
-          </div>
+          <h2 className="text-center mt-2 text-5xl rosegoldia ml-5">To do:</h2>
+
+          <form onSubmit={addTask} className="flex items-center ">
+            <input
+              id="inputText"
+              type="text"
+              required
+              placeholder="Enter taskname"
+              className="w-[25vw] text-lg tracking-wide border-0 shadow-[gray] shadow-sm border-amber-200 bg-amber-50 edu-font rounded-lg px-5 py-1 focus:outline-none"
+              value={Eachtask}
+              onChange={(e) => setEachTask(e.target.value)}
+            />
+            <button
+              type="submit"
+              className="text-2xl ml-2 border-0  rounded border-white  hover:scale-125  transition-all ease-in-out "
+            >
+              <MdOutlinePlaylistAdd />
+            </button>
+          </form>
         </div>
-        <hr />
+        {/* <hr /> */}
+        <Line />
         <div>
           {taskList.map((taskEach, index) => (
-            <Task
-              key={taskEach.id}
-              task={taskEach}
-              // editFunction={() => editTask(index)}
-              deleteFunction={() => deleteTask(taskEach.id)}
-              setTaskList={setTaskList}
-            />
+            <>
+              <Task
+                key={taskEach.id}
+                task={taskEach}
+                // editFunction={() => editTask(index)}
+                deleteFunction={() => deleteTask(taskEach.id)}
+                setTaskList={setTaskList}
+              />
+              <Line />
+            </>
           ))}
         </div>
       </div>
