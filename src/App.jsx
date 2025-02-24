@@ -3,7 +3,6 @@ import Task from "./Task";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { useState } from "react";
 import Oneline from "./Oneline";
-
 function App() {
   const [taskList, setTaskList] = useState([]);
   const [Eachtask, setEachTask] = useState("");
