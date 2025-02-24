@@ -2,7 +2,7 @@ import "./App.css";
 import Task from "./Task";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { useState } from "react";
-import Line from "./Line";
+import Oneline from "./Oneline";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -51,7 +51,7 @@ function App() {
             </button>
           </form>
         </div>
-        <Line />
+        <Oneline />
         <div>
           {taskList.map((taskEach) => (
             <>

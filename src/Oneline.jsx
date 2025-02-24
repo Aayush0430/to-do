@@ -1,6 +1,6 @@
 import React from "react";
 
-const Line = () => {
+const Oneline = () => {
   return (
     <div className="h-1">
       <img src="oneline.png" className="" alt="" />
@@ -8,4 +8,4 @@ const Line = () => {
   );
 };
 
-export default Line;
+export default Oneline;
