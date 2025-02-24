@@ -60,7 +60,7 @@ function App() {
                 task={taskEach}
                 deleteFunction={() => deleteTask(taskEach.id)}
               />
-              <Line />
+              <Oneline />
             </>
           ))}
         </div>
