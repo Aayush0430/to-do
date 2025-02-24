@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { MdSaveAs } from "react-icons/md";
-import Line from "./line";
 
 const Task = ({ key, task, deleteFunction, editFunction }) => {
   const [ischecked, setChecked] = useState(false);
