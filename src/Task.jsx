@@ -25,12 +25,12 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
     }, 0); // Ensure this runs after state update
   }
   return (
-    <div className="rounded-lg  edu-font text-3xl font-extralight py-3 px-5 my-1  flex items-center justify-between ">
+    <div className="rounded-lg edu-font text-3xl font-extralight sm:py-2 sm:px-5 my-1  flex items-center justify-between ">
       <div className="flex  ">
         <input
           type="checkbox"
           onChange={() => setChecked((prev) => !prev)}
-          className="taskListEach w-6 h-6 mr-4 mt-2"
+          className="taskListEach w-4 sm:w-6 h-6 mr-2 sm:mr-4 mt-2"
         />
         <form
           className="flex justify-between items-center w-[37vw]"
@@ -43,7 +43,7 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
             id={task.id}
             readOnly={isEditCLicked ? false : true}
             type="text"
-            className={`taskNameEach overflow-hidden w-[33vw] border-0 rounded px-2 outline-none ${
+            className={`mb-1 sm:mb-0 taskNameEach overflow-hidden w-[33vw] border-0 text-xl sm:text-3xl rounded px-2 outline-none ${
               ischecked ? "line-through" : ""
             } ${isEditCLicked && ischecked ? "no-underline" : ""}`}
             value={taskName}
@@ -51,7 +51,7 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
           />
           <button
             type="submit"
-            className={`text-green-400 scale-90 hover:scale-100 ease-in-out ml-2 ${
+            className={`text-green-400 text-lg sm:text-2xl ml-12 hover:scale-100 ease-in-out  ${
               isEditCLicked ? "inline" : "hidden"
             }`}
           >
@@ -64,15 +64,15 @@ const Task = ({ key, task, deleteFunction, editFunction }) => {
         <button
           // onClick={() => setEditClicked((prev) => !prev)}
           onClick={handleEditClick}
-          className={` ml-5 text-xl scale-125 hover:text-blue-500  hover:scale-150 transition-all ease-in-out ${
-            isEditCLicked ? "text-blue-500 scale-125" : ""
+          className={`  text-lg sm:text-2xl hover:text-blue-500  hover:scale-125 transition-all ease-in-out ${
+            isEditCLicked ? "text-blue-500 " : ""
           }`}
         >
           <CiEdit />
         </button>
         <button
           onClick={deleteFunction}
-          className=" ml-5 text-xl scale-125 hover:scale-150 hover:text-red-500 transition-all ease-in-ocd t"
+          className=" ml-2 sm:ml-4 text-lg sm:text-2xl hover:scale-125 hover:text-red-500 transition-all ease-in-ocd t"
         >
           <MdDeleteForever />
         </button>
