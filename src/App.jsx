@@ -23,8 +23,8 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen w-full flex justify-center pt-20 bg-gray-950 px-4 sm:px-0">
-      <div className="w-full sm:w-2/3 md:w-1/2 min-h-[70vh] bg-amber-100 shadow-2xl shadow-gray h-max border-2 border-white rounded-xl p-5">
+    <div className="min-h-screen w-full flex justify-center pt-20 bg-neutral-800 px-4 sm:px-0">
+      <div className="w-full sm:w-2/3 md:w-1/2 min-h-[70vh] bg-amber-100 shadow-2xl shadow-gray-500 h-max border-2 border-white rounded-xl p-5">
         <div className="sm:flex items-center justify-between pb-5">
           <h2 className="text-center mt-2 text-4xl rosegoldia sm:text-5xl ml-3">
             To do:
